@@ -1,0 +1,4 @@
+rootProject.name = "NBA"
+include ':mobile',
+        ':core:base',
+        ':core:network'

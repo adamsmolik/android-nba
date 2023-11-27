@@ -1,0 +1,160 @@
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-kapt"
+apply plugin: "kotlin-parcelize"
+apply plugin: "org.jlleitschuh.gradle.ktlint"
+apply plugin: "io.gitlab.arturbosch.detekt"
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdkVersion sdk.compile
+
+    defaultConfig {
+        minSdkVersion sdk.min
+        targetSdkVersion sdk.target
+
+        manifestPlaceholders += [configChanges: "orientation|screenSize|screenLayout|keyboardHidden"]
+    }
+
+    buildTypes {
+        debug {
+            zipAlignEnabled false
+            minifyEnabled false
+        }
+
+        release {
+            zipAlignEnabled true
+            minifyEnabled true
+
+            proguardFile "${project.rootDir}/core/proguard-rules/proguard-retrofit.pro"
+            proguardFile "${project.rootDir}/core/proguard-rules/proguard-okhttp.pro"
+            proguardFile "${project.rootDir}/core/proguard-rules/proguard-okio.pro"
+            proguardFile "${project.rootDir}/core/proguard-rules/proguard-kotlinx-serialization.pro"
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "env"
+
+    productFlavors {
+        // env
+        develop {
+            dimension = "env"
+
+            manifestPlaceholders += [screenOrientation: "unspecified"]
+        }
+
+        staging {
+            dimension = "env"
+
+            manifestPlaceholders += [screenOrientation: "locked"]
+        }
+
+        production {
+            dimension = "env"
+
+            manifestPlaceholders += [screenOrientation: "locked"]
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11
+        freeCompilerArgs = [
+                "-XXLanguage:+InlineClasses",
+                "-Xopt-in=kotlin.RequiresOptIn"
+        ]
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion "${versions.compose_compiler}"
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    packagingOptions {
+        exclude("META-INF/*.kotlin_module")
+    }
+
+    // TODO
+//    testOptions {
+//        animationsDisabled = true
+//
+//        unitTests {
+//            includeAndroidResources = true
+//        }
+//
+//        unitTests.all {
+//            useJUnit {
+//                // gradlew -PtestCategory=screenshots ....
+//                if (project.hasProperty('testCategory') && testCategory == "screenshots") {
+//                    includeCategories 'com.betterpool.shared.test.ScreenshotTest'
+//                } else {
+//                    excludeCategories 'com.betterpool.shared.test.ScreenshotTest'
+//                }
+//            }
+//        }
+//    }
+}
+
+kapt {
+    useBuildCache = true
+    correctErrorTypes = true
+}
+
+/**
+ * Every module will have these dependencies
+ * kapt	- because kapt works per module
+ * test	- because test dependencies work per module
+ */
+dependencies {
+    // Hilt needs to be directly in each module, otherwise it throws sync error
+    implementation deps.hilt.android
+    // TODO
+//    implementation deps.hilt.navigation_fragment
+    kapt deps.hilt.compiler
+
+    // Moshi code gen needs to be in each module
+    kapt deps.network.moshi_kotlin_codegen
+
+    //Common unit test
+    testImplementation testing_deps.junit
+    // TODO
+//    testImplementation testing_deps.kotlinx_coroutines_test
+//    testImplementation testing_deps.androidx_lifecycle_runtime_testing
+//    testImplementation testing_deps.turbine
+//    testImplementation testing_deps.mockk
+}
+
+ktlint {
+    debug = false
+    verbose = false
+    android = true
+
+    filter {
+        exclude("**/generated/**")
+        include("**/java/**")
+        include("**/kotlin/**")
+    }
+}
+
+detekt {
+    buildUponDefaultConfig = true
+    parallel = true
+    config = files("${project.rootDir}/detekt.yml")
+}

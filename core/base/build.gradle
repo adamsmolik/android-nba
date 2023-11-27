@@ -1,0 +1,46 @@
+apply from: "${project.rootDir}/common-lib.gradle"
+android {
+    namespace 'com.adamsmolik.nba.base'
+
+    buildFeatures {
+        buildConfig = true
+    }
+}
+
+dependencies {
+    // Kotlin
+    api deps.kotlin.std
+    api deps.kotlin.coroutines
+
+    // Material design
+    api deps.material_design
+
+    // Android X
+    api deps.androidx.appcompat
+    api deps.androidx.datastore
+
+    // KTX
+    api deps.androidx.ktx.core
+    api deps.androidx.ktx.activity
+
+    // Compose
+    api deps.androidx.compose.compiler
+    api deps.androidx.compose.ui
+    debugApi deps.androidx.compose.ui_tooling
+    api deps.androidx.compose.ui_tooling_preview
+//    debugApi deps.androidx.compose.ui_pooling_container   TODO
+//     Fixes bug with preview (https://issuetracker.google.com/issues/227767363)
+    api deps.androidx.compose.foundation
+    api deps.androidx.compose.material3
+    api deps.androidx.compose.material2
+    api deps.androidx.compose.activity
+    api deps.androidx.compose.navigation
+    api deps.androidx.compose.hilt_navigation
+
+    // Logging
+    api deps.timber
+
+    // Moshi (JSON parser)
+    api deps.network.moshi
+    api deps.network.moshi_adapters
+}
