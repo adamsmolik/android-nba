@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.NBA"
+        parent="Theme.Material3.Light.NoActionBar">
+
+        <item name="android:enforceStatusBarContrast"
+            tools:targetApi="q">false
+        </item>
+        <item name="android:statusBarColor">@color/bg_status_bar</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="android:enforceNavigationBarContrast"
+            tools:targetApi="q">false
+        </item>
+        <item name="android:navigationBarColor">@color/bg_navigation_bar</item>
+        <item name="android:navigationBarDividerColor"
+            tools:targetApi="o_mr1">@color/bg_navigation_bar
+        </item>
+        <item name="android:windowLightNavigationBar"
+            tools:targetApi="o_mr1">true
+        </item>
+
+    </style>
+</resources>

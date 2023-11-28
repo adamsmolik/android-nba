@@ -1,6 +1,6 @@
 apply from: "${project.rootDir}/common-lib.gradle"
 android {
-    namespace 'com.adamsmolik.nba.network'
+    namespace 'com.adamsmolik.nba.core.network'
 }
 
 dependencies {

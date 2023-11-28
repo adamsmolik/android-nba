@@ -1,6 +1,6 @@
 apply from: "${project.rootDir}/common-lib.gradle"
 android {
-    namespace 'com.adamsmolik.nba.base'
+    namespace 'com.adamsmolik.nba.core.base'
 
     buildFeatures {
         buildConfig = true
@@ -36,6 +36,7 @@ dependencies {
     api deps.androidx.compose.activity
     api deps.androidx.compose.navigation
     api deps.androidx.compose.hilt_navigation
+    api deps.androidx.compose.lifecycle_runtime
 
     // Logging
     api deps.timber

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base errors -->
+    <string name="error_general">Something went wrong, please try again later.</string>
+    <string name="error_no_internet">No internet connection, please try again later.</string>
+
+    <!-- Stateful -->
+    <string name="screen_state_retry">Retry</string>
+    <string name="screen_offline_title">Network error</string>
+    <string name="screen_offline_description">No internet connection.\nConnect to the internet and try again.</string>
+    <string name="screen_error_title">Error</string>
+    <string name="screen_error_description">Something went wrong,\nplease try again later.</string>
+    <string name="screen_empty_title">No data found</string>
+
+    <!-- Preview -->
+    <string name="preview_title">Preview title</string>
+    <string name="preview_message">Preview message</string>
+    <string name="preview_action">Action</string>
+
+    <!-- Global content descriptions -->
+    <string name="content_description_back">Back</string>
+    <string name="content_description_close">Close</string>
+
+    <string name="string">%1$s</string>
+
+</resources>

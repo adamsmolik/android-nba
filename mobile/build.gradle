@@ -6,10 +6,10 @@ def appVersionName = "1.0.0"
 def appVersionCode = 1
 
 android {
-    namespace 'com.betterpool.splash'
+    namespace 'com.adamsmolik.nba'
 
     defaultConfig {
-        applicationId 'com.splash.splashsports'
+        applicationId 'com.adamsmolik.nba'
 
         versionCode appVersionCode
         versionName appVersionName
@@ -60,4 +60,10 @@ android {
 dependencies {
     implementation project(':core:base')
     implementation project(':core:network')
+
+    implementation project(':data:player')
+
+    implementation project(':domain:player')
+
+    implementation project(':feature:player')
 }
