@@ -6,6 +6,7 @@ private const val FLAVOR_DEVELOP = "develop"
 
 private const val BUILD_TYPE_DEBUG = "debug"
 private const val BUILD_TYPE_RELEASE = "release"
+
 object CoreConfig {
     const val PRODUCTION_FLAVOR = BuildConfig.FLAVOR == FLAVOR_PRODUCTION
     const val STAGING_FLAVOR = BuildConfig.FLAVOR == FLAVOR_STAGING
