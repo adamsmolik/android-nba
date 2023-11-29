@@ -3,7 +3,7 @@
 package com.adamsmolik.nba.domain.player.model
 
 data class PlayerModel(
-    val id: String,
+    val id: Int,
     val firstName: String,
     val lastName: String,
     val position: String?,
@@ -13,7 +13,7 @@ data class PlayerModel(
 }
 
 fun PlayerModel.Companion.mock(
-    id: String = "",
+    id: Int = 0,
     firstName: String = "LeBron",
     lastName: String = "James",
     position: String? = "F",

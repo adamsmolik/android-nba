@@ -62,8 +62,11 @@ dependencies {
     implementation project(':core:network')
 
     implementation project(':data:player')
+    implementation project(':data:team')
 
     implementation project(':domain:player')
+    implementation project(':domain:team')
 
     implementation project(':feature:player')
+    implementation project(':feature:team')
 }

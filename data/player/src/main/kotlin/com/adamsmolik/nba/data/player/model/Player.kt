@@ -8,7 +8,7 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class PlayerDTO(
-    val id: String,
+    val id: Int,
     @Json(name = "first_name")
     val firstName: String,
     @Json(name = "last_name")

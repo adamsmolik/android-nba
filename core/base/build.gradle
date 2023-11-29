@@ -38,6 +38,9 @@ dependencies {
     api deps.androidx.compose.hilt_navigation
     api deps.androidx.compose.lifecycle_runtime
 
+    // Coil
+    api deps.coil.compose
+
     // Logging
     api deps.timber
 

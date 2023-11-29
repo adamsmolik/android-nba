@@ -21,6 +21,7 @@
     <!-- Global content descriptions -->
     <string name="content_description_back">Back</string>
     <string name="content_description_close">Close</string>
+    <string name="content_description_user_avatar">User avatar</string>
 
     <string name="string">%1$s</string>
 

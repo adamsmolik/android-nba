@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="team_detail_title">Team Detail</string>
+    <string name="team_detail_conference">Conference</string>
+    <string name="team_detail_division">Division</string>
+
+</resources>

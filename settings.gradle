@@ -3,5 +3,8 @@ include ':mobile',
         ':core:base',
         ':core:network',
         ':data:player',
+        ':data:team',
         ':domain:player',
-        ':feature:player'
+        ':domain:team',
+        ':feature:player',
+        ':feature:team'

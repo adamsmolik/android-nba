@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
@@ -24,10 +25,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.adamsmolik.nba.core.base.arch.LocalActivity
 import com.adamsmolik.nba.core.base.composable.AppBarDividerType
+import com.adamsmolik.nba.core.base.composable.AvatarMedium
 import com.adamsmolik.nba.core.base.composable.BaseStatefulScreen
 import com.adamsmolik.nba.core.base.composable.DefaultPreview
 import com.adamsmolik.nba.core.base.composable.DotDivider
+import com.adamsmolik.nba.core.base.composable.HorizontalSpacer
 import com.adamsmolik.nba.core.base.composable.VerticalSpacer
 import com.adamsmolik.nba.core.base.paging.LazyColumnPaged
 import com.adamsmolik.nba.core.base.paging.PagingUiModel
@@ -36,6 +40,7 @@ import com.adamsmolik.nba.core.base.theme.NBATheme
 import com.adamsmolik.nba.domain.player.model.PlayerModel
 import com.adamsmolik.nba.domain.player.model.mock
 import com.adamsmolik.nba.feature.player.R
+import com.adamsmolik.nba.player.LocalPlayerContract
 import com.adamsmolik.nba.player.ui.model.PlayerUiModel
 import com.adamsmolik.nba.player.ui.model.PlayersUiModel
 import com.adamsmolik.nba.player.ui.model.toUiModel
@@ -50,10 +55,13 @@ fun PlayersScreen(viewModel: PlayersViewModel) {
     val state by viewModel.screenState.collectAsStateWithLifecycle()
     val listState = rememberLazyListState()
 
-    val listener = remember() {
+    val activity = LocalActivity.current
+    val contract = LocalPlayerContract.current
+
+    val listener = remember(activity, contract) {
         object : PlayersListener {
             override fun onPlayerClick(player: PlayerUiModel) {
-                TODO("Not yet implemented")
+                contract.navigatePlayerDetail(activity, player.id)
             }
         }
     }
@@ -99,7 +107,8 @@ private fun Item(
     player: PlayerUiModel,
     onClick: (PlayerUiModel) -> Unit,
 ) {
-    Column(
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .clip(RoundedCornerShape(8.dp))
             .fillMaxWidth()
@@ -110,34 +119,40 @@ private fun Item(
                 horizontal = 16.dp,
             ),
     ) {
-        Text(
-            text = player.fullName,
-            color = NBATheme.colors.onSurface.primary,
-            style = NBATheme.typography.title.large,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-        )
+        AvatarMedium()
 
-        VerticalSpacer(2.dp)
+        HorizontalSpacer(16.dp)
 
-        Row {
+        Column {
             Text(
-                text = player.teamName,
-                color = NBATheme.colors.onSurface.secondary,
-                style = NBATheme.typography.body.medium,
+                text = player.fullName,
+                color = NBATheme.colors.onSurface.primary,
+                style = NBATheme.typography.title.large,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
             )
 
-            if (player.position != null) {
-                DotDivider(
-                    style = NBATheme.typography.body.medium,
+            VerticalSpacer(2.dp)
+
+            Row {
+                Text(
+                    text = player.teamName,
                     color = NBATheme.colors.onSurface.secondary,
+                    style = NBATheme.typography.body.medium,
                 )
 
-                Text(
-                    text = player.position,
-                    color = NBATheme.colors.onSurface.secondary,
-                    style = NBATheme.typography.body.medium,
-                )
+                if (player.position != null) {
+                    DotDivider(
+                        style = NBATheme.typography.body.medium,
+                        color = NBATheme.colors.onSurface.secondary,
+                    )
+
+                    Text(
+                        text = player.position,
+                        color = NBATheme.colors.onSurface.secondary,
+                        style = NBATheme.typography.body.medium,
+                    )
+                }
             }
         }
     }
@@ -150,7 +165,7 @@ fun PreviewPlayersContent() {
         PlayersContent(
             state = PlayersUiModel(
                 players = List(10) {
-                    PlayerModel.mock(id = "$it").toUiModel()
+                    PlayerModel.mock(id = it).toUiModel()
                 },
                 paging = PagingUiModel.preview(),
             ),

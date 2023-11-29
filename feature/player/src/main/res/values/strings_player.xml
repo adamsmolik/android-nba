@@ -3,4 +3,8 @@
 
     <string name="players_title">Players</string>
 
+    <string name="player_detail_title">Player Detail</string>
+    <string name="player_detail_height">Height</string>
+    <string name="player_detail_weight">Weight</string>
+
 </resources>

@@ -6,9 +6,6 @@ android {
 dependencies {
     implementation project(':core:base')
 
-    api deps.coil.compose
-    api deps.coil.svg
-
     api deps.network.retrofit
     api deps.network.retrofit_moshi_converter
 

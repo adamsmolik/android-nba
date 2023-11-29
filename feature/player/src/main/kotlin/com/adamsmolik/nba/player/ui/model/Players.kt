@@ -12,8 +12,7 @@ data class PlayersUiModel(
 
 @Immutable
 data class PlayerUiModel(
-    val id: String,
-    val teamId: String,
+    val id: Int,
     val firstName: String,
     val lastName: String,
     val position: String?,
@@ -24,7 +23,6 @@ data class PlayerUiModel(
 
 fun PlayerModel.toUiModel() = PlayerUiModel(
     id = id,
-    teamId = team.id,
     firstName = firstName,
     lastName = lastName,
     position = position,

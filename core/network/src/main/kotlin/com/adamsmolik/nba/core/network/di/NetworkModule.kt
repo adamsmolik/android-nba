@@ -2,7 +2,6 @@ package com.adamsmolik.nba.core.network.di
 
 import com.adamsmolik.nba.core.base.CoreConfig
 import com.adamsmolik.nba.core.network.retrofit.adapter.ResultCallAdapterFactory
-import com.adamsmolik.nba.core.network.retrofit.interceptor.LoggingInterceptor
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -22,7 +21,12 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideLoggingInterceptor(): HttpLoggingInterceptor = LoggingInterceptor.provide()
+    fun provideLoggingInterceptor(): HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
+        level = when (CoreConfig.RELEASE_BUILD_TYPE) {
+            true -> HttpLoggingInterceptor.Level.BASIC
+            false -> HttpLoggingInterceptor.Level.BODY
+        }
+    }
 
     @Provides
     @Singleton

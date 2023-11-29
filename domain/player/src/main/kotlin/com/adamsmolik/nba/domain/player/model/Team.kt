@@ -3,14 +3,14 @@
 package com.adamsmolik.nba.domain.player.model
 
 data class TeamModel(
-    val id: String,
+    val id: Int,
     val name: String,
 ) {
     companion object
 }
 
 fun TeamModel.Companion.mock(
-    id: String = "",
+    id: Int = 0,
     name: String = "Lakers",
 ) = TeamModel(
     id = id,

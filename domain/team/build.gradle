@@ -1,0 +1,8 @@
+apply from: "${project.rootDir}/common-lib.gradle"
+android {
+    namespace 'com.adamsmolik.nba.domain.team'
+}
+
+dependencies {
+    implementation project(':core:base')
+}

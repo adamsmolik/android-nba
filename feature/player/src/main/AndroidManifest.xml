@@ -18,6 +18,13 @@
 
         </activity>
 
+
+        <activity
+            android:name="com.adamsmolik.nba.player.ui.nav.PlayerDetailActivity"
+            android:configChanges="${configChanges}"
+            android:screenOrientation="${screenOrientation}"
+            android:windowSoftInputMode="adjustResize" />
+
     </application>
 
 </manifest>
