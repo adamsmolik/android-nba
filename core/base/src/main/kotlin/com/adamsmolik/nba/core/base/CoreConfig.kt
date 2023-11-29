@@ -20,7 +20,7 @@ object CoreConfig {
     object Paging {
         const val PREFETCH_OFFSET = 5
         const val INITIAL_OFFSET = 0
-        const val PAGE_SIZE = 20
+        const val PAGE_SIZE = 35
     }
 
     const val DATE_FORMATTER_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"

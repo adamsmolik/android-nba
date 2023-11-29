@@ -121,10 +121,10 @@ private fun PlayerDetailContent(
                         style = NBATheme.typography.body.large,
                         modifier = Modifier
                             .clip(RoundedCornerShape(4.dp))
+                            .clickable { listener.onTeamClick(state.teamId) }
                             .padding(
                                 vertical = 4.dp,
-                            )
-                            .clickable { listener.onTeamClick(state.teamId) },
+                            ),
                     )
 
                     if (state.position != null) {
