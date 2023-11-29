@@ -54,7 +54,6 @@ sealed interface Snackbar {
 
 class SnackbarHandler(
     private val activity: Activity,
-//    private val errorHandler: ErrorHandler,
 ) {
     internal val snackbarHostState by lazy { SnackbarHostState() }
 
@@ -84,39 +83,6 @@ class SnackbarHandler(
             }
         }
     }
-
-    // TODO
-//    suspend fun handleError(error: AppError) {
-//        val error = errorHandler.getError(error)
-//
-//        if (error != null) {
-//            val duration = if (error.message.asString(activity).length <= CoreConfig.ErrorHandler.SHORT_ERROR_MAX_LENGTH) {
-//                SnackbarDuration.Short
-//            } else {
-//                SnackbarDuration.Long
-//            }
-//
-//            showSnackbar(
-//                when (error.action) {
-//                    is ErrorActionUiModel.Url -> {
-//                        Snackbar.Action(
-//                            message = error.message,
-//                            duration = duration,
-//                            actionTitle = TextRes.Regular(error.action.title),
-//                            actionIcon = null,
-//                            actionCallback = { activity.openUrl(error.action.url) },
-//                        )
-//                    }
-//                    null -> {
-//                        Snackbar.Message(
-//                            message = error.message,
-//                            duration = duration,
-//                        )
-//                    }
-//                },
-//            )
-//        }
-//    }
 }
 
 @Composable

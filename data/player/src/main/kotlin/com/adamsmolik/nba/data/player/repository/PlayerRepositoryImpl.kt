@@ -15,6 +15,7 @@ class PlayerRepositoryImpl @Inject constructor(
 
     override suspend fun listPlayers(limit: Int, offset: Int): Result<List<PlayerModel>> = playerApi
         .listPlayers(
+            // This is not ideal, my paging is designed for offset with limit. I decided to use this workaround instead of rewriting my paging.
             page = offset / limit + 1,
             perPage = limit,
         ).map { it.data.map { item -> item.toModel() } }

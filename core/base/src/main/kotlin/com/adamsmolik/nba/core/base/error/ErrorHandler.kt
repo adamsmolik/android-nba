@@ -12,9 +12,10 @@ data class ErrorUiModel(
     val message: TextRes,
 )
 
+// For module specific error
 // interface ModuleErrorResolver {
 //    fun getErrorMessageRes(error: AppError): Int?
-//    fun getErrorMessage(error: AppError): TextRes? = null   // TODO
+//    fun getErrorMessage(error: AppError): TextRes? = null
 // }
 
 class ErrorHandler @Inject constructor(

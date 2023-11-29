@@ -6,8 +6,8 @@ import com.squareup.moshi.JsonClass
 import com.squareup.moshi.Moshi
 import retrofit2.Response
 
+// For api specific error
 @JsonClass(generateAdapter = true)
-// TODO remove
 data class ErrorDTO(
     val error: String?,
     val message: String,
