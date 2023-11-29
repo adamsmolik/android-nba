@@ -8,4 +8,6 @@ dependencies {
     implementation project(':core:network')
 
     implementation project(':domain:player')
+
+    testImplementation project(':test')
 }

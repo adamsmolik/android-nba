@@ -23,14 +23,11 @@ ext {
 
 			// Android X
 			androidx_appcompat              : '1.6.1',
-//			androidx_splashscreen           : '1.0.1',
 			androidx_datastore              : '1.0.0',
 			androidx_lifecycle              : '2.6.2',
 
 			// KTX
 			ktx_core                        : '1.12.0',
-//			ktx_activity                    : '1.8.0',
-//			ktx_fragment                    : '1.6.2',
 			ktx_collection                  : '1.3.0',
 
 			// Compose
@@ -39,21 +36,14 @@ ext {
 			compose_compiler                : '1.5.4',
 			compose_navigation              : '2.7.5',
 			compose_hilt_navigation         : '1.1.0',
-			// TODO
-//			compose_pooling_container       : '1.0.0',
 			compose_lifecycle_runtime       : '2.6.2',
-//			compose_constraint_layout       : '1.0.1',
 
 			// Accompanist
 			accompanist_systemuicontroller  : '0.32.0',
 			accompaninst_navigation_material: '0.32.0',
-			// TODO
-//			accompaninst_placeholder        : '0.32.0',
-//			accompaninst_permissions        : '0.32.0',
 
 			// Hilt
 			hilt                            : '2.48.1',
-//			hilt_navigation_fragment        : '1.1.0',
 
 			// Network
 			okhttp                          : '4.12.0',
@@ -72,11 +62,10 @@ ext {
 
 	testing_versions = [
 			junit                  : '4.13.2',
-			// TODO
-//			test_parameter_injector: '1.14',
-//			kotlinx_coroutines_test: '1.7.3',
-//			turbine                : '1.0.0',
-//			mockk                  : '1.13.8'
+			test_parameter_injector: '1.14',
+			kotlinx_coroutines_test: '1.7.3',
+			turbine                : '1.0.0',
+			mockk                  : '1.13.8'
 	]
 
 	gradle_plugins = [
@@ -115,8 +104,6 @@ ext {
 							ui                  : "androidx.compose.ui:ui:${versions.compose}",
 							ui_tooling          : "androidx.compose.ui:ui-tooling:${versions.compose}",
 							ui_tooling_preview  : "androidx.compose.ui:ui-tooling-preview:${versions.compose}",
-							//This fixes the transitive dependency issue forcing preview to fail (https://issuetracker.google.com/issues/227767363)
-//							ui_pooling_container: "androidx.customview:customview-poolingcontainer:${versions.compose_pooling_container}",
 							foundation          : "androidx.compose.foundation:foundation:${versions.compose_foundation}",
 							material3           : "androidx.compose.material3:material3:${versions.material_design3_compose}",
 							material2           : "androidx.compose.material:material:${versions.material_design2_compose}",
@@ -128,21 +115,17 @@ ext {
 							runtime_livedata    : "androidx.compose.runtime:runtime-livedata:${versions.compose}",
 							util                : "androidx.compose.ui:ui-util:${versions.compose}",
 							lifecycle_runtime   : "androidx.lifecycle:lifecycle-runtime-compose:${versions.compose_lifecycle_runtime}",
-//							constraint_layout   : "androidx.constraintlayout:constraintlayout-compose:${versions.compose_constraint_layout}"
 					]
 			],
 
 			accompanist     : [
 					systemuicontroller : "com.google.accompanist:accompanist-systemuicontroller:${versions.accompanist_systemuicontroller}",
 					navigation_material: "com.google.accompanist:accompanist-navigation-material:${versions.accompaninst_navigation_material}",
-//					placeholder        : "com.google.accompanist:accompanist-placeholder:${versions.accompaninst_placeholder}",
-//					permissions        : "com.google.accompanist:accompanist-permissions:${versions.accompaninst_permissions}"
 			],
 
 			hilt            : [
 					android            : "com.google.dagger:hilt-android:${versions.hilt}",
 					compiler           : "com.google.dagger:hilt-compiler:${versions.hilt}",
-//					navigation_fragment: "androidx.hilt:hilt-navigation-fragment:${versions.hilt_navigation_fragment}"
 			],
 
 			network         : [
@@ -171,12 +154,10 @@ ext {
 
 	testing_deps = [
 			junit                             : "junit:junit:${testing_versions.junit}",
-//			test_parameter_injector           : "com.google.testparameterinjector:test-parameter-injector:${testing_versions.test_parameter_injector}",
-//			kotlinx_coroutines_test           : "org.jetbrains.kotlinx:kotlinx-coroutines-test:${testing_versions.kotlinx_coroutines_test}",
-//			showkase                          : "com.airbnb.android:showkase:${testing_versions.showkase}",
-//			showkase_processor                : "com.airbnb.android:showkase-processor:${testing_versions.showkase}",
-//			androidx_lifecycle_runtime_testing: "androidx.lifecycle:lifecycle-runtime-testing:${testing_versions.androidx_lifecycle}",
-//			turbine                           : "app.cash.turbine:turbine:${testing_versions.turbine}",
-//			mockk                             : "io.mockk:mockk:${testing_versions.mockk}"
+			test_parameter_injector           : "com.google.testparameterinjector:test-parameter-injector:${testing_versions.test_parameter_injector}",
+			kotlinx_coroutines_test           : "org.jetbrains.kotlinx:kotlinx-coroutines-test:${testing_versions.kotlinx_coroutines_test}",
+			androidx_lifecycle_runtime_testing: "androidx.lifecycle:lifecycle-runtime-testing:${testing_versions.androidx_lifecycle}",
+			turbine                           : "app.cash.turbine:turbine:${testing_versions.turbine}",
+			mockk                             : "io.mockk:mockk:${testing_versions.mockk}"
 	]
 }

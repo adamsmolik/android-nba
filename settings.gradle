@@ -7,4 +7,5 @@ include ':mobile',
         ':domain:player',
         ':domain:team',
         ':feature:player',
-        ':feature:team'
+        ':feature:team',
+        ':test'

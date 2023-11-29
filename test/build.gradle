@@ -1,0 +1,12 @@
+apply from: "${project.rootDir}/common-lib.gradle"
+android {
+    namespace 'com.adamsmolik.nba.test'
+}
+
+dependencies {
+    api project(':core:base')
+
+    api testing_deps.junit
+    api testing_deps.kotlinx_coroutines_test
+    api testing_deps.androidx_lifecycle_runtime_testing
+}
