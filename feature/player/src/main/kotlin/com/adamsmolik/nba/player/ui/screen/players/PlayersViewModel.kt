@@ -1,9 +1,9 @@
 package com.adamsmolik.nba.player.ui.screen.players
 
-import com.adamsmolik.nba.core.base.arch.BaseStatefulViewModel
-import com.adamsmolik.nba.core.base.paging.PagedDataProvider
-import com.adamsmolik.nba.core.base.paging.toScreenState
-import com.adamsmolik.nba.core.base.paging.toUiModel
+import com.adamsmolik.nba.core.ui.arch.BaseStatefulViewModel
+import com.adamsmolik.nba.core.ui.composable.paging.PagedDataProvider
+import com.adamsmolik.nba.core.ui.composable.paging.toScreenState
+import com.adamsmolik.nba.core.ui.composable.paging.toUiModel
 import com.adamsmolik.nba.domain.player.usecase.ListPlayersUseCase
 import com.adamsmolik.nba.domain.player.usecase.ListPlayersUseCaseInput
 import com.adamsmolik.nba.player.ui.model.PlayersUiModel

@@ -1,8 +1,8 @@
 package com.adamsmolik.nba.team.ui.screen.detail
 
 import androidx.lifecycle.SavedStateHandle
-import com.adamsmolik.nba.core.base.arch.BaseStatefulViewModel
 import com.adamsmolik.nba.core.base.navigation.ARG_INITIALIZER
+import com.adamsmolik.nba.core.ui.arch.BaseStatefulViewModel
 import com.adamsmolik.nba.domain.team.usecase.GetTeamDetailUseCase
 import com.adamsmolik.nba.domain.team.usecase.GetTeamDetailUseCaseInput
 import com.adamsmolik.nba.team.ui.model.TeamDetailUiModel

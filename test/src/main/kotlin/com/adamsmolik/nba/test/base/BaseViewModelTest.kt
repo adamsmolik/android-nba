@@ -1,6 +1,6 @@
 package com.adamsmolik.nba.test.base
 
-import com.adamsmolik.nba.core.base.arch.BaseViewModel
+import com.adamsmolik.nba.core.ui.arch.BaseViewModel
 import com.adamsmolik.nba.test.MainDispatcherRule
 import org.junit.Before
 import org.junit.Rule

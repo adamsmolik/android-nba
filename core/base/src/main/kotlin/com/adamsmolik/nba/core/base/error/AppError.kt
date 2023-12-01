@@ -1,8 +1,5 @@
 package com.adamsmolik.nba.core.base.error
 
-import com.adamsmolik.nba.core.base.arch.ScreenState
-import com.adamsmolik.nba.core.base.util.TextRes
-
 sealed class AppError {
     abstract val cause: Throwable
 
@@ -13,6 +10,7 @@ sealed class AppError {
             override val cause: Throwable,
             val responseError: ResponseErrorModel,
         ) : NetworkError()
+
         data class InvalidResponse(override val cause: Throwable, val errorBody: String?) : NetworkError()
         data class NoConnectivityError(override val cause: Throwable) : NetworkError()
 
@@ -34,11 +32,3 @@ data class ResponseErrorModel(
     val type: String?,
     val message: String,
 )
-
-fun AppError.toScreenState(customMessage: TextRes? = null) = when (this) {
-    is AppError.NetworkError.NoConnectivityError -> ScreenState.Offline
-    else -> ScreenState.Error(
-        error = this,
-        message = customMessage,
-    )
-}

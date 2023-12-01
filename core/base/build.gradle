@@ -24,23 +24,8 @@ dependencies {
     api deps.androidx.ktx.activity
 
     // Compose
-    api deps.androidx.compose.compiler
-    api deps.androidx.compose.ui
-    debugApi deps.androidx.compose.ui_tooling
-    api deps.androidx.compose.ui_tooling_preview
-    api deps.androidx.compose.foundation
-    api deps.androidx.compose.material3
-    api deps.androidx.compose.material2
-    api deps.androidx.compose.activity
     api deps.androidx.compose.navigation
     api deps.androidx.compose.hilt_navigation
-    api deps.androidx.compose.lifecycle_runtime
-
-    // Accompanist
-    api deps.accompanist.systemuicontroller
-
-    // Coil
-    api deps.coil.compose
 
     // Logging
     api deps.timber

@@ -1,7 +1,6 @@
 package com.adamsmolik.nba.core.base.arch
 
 import com.adamsmolik.nba.core.base.error.AppError
-import com.adamsmolik.nba.core.base.error.toScreenState
 
 sealed interface ResultState<out V> {
 
@@ -48,10 +47,4 @@ fun <V1, V2> ResultState<V1>.merge(other: ResultState<V2>): ResultState<Pair<V1,
 fun <V> Result<V>.toState(): ResultState<V> = when (this) {
     is Result.Data -> ResultState.Content(value = this.value, refreshing = false)
     is Result.Error -> ResultState.Error(this.error)
-}
-
-fun <S, T : Any> ResultState<S>.toScreenState(content: (data: S) -> T): ScreenState<T> = when (this) {
-    is ResultState.Progress -> ScreenState.Progress
-    is ResultState.Content -> ScreenState.Content(content(value))
-    is ResultState.Error -> error.toScreenState()
 }

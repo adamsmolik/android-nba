@@ -2,6 +2,7 @@ rootProject.name = "NBA"
 include ':mobile',
         ':core:base',
         ':core:network',
+        ':core:ui',
         ':data:player',
         ':data:team',
         ':domain:player',

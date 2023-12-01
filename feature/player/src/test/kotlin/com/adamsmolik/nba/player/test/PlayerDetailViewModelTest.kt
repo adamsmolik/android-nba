@@ -2,9 +2,9 @@ package com.adamsmolik.nba.player.test
 
 import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
-import com.adamsmolik.nba.core.base.arch.ScreenState
 import com.adamsmolik.nba.core.base.arch.resultData
 import com.adamsmolik.nba.core.base.navigation.ARG_INITIALIZER
+import com.adamsmolik.nba.core.ui.arch.ScreenState
 import com.adamsmolik.nba.domain.player.model.PlayerDetailModel
 import com.adamsmolik.nba.domain.player.model.mock
 import com.adamsmolik.nba.domain.player.usecase.GetPlayerDetailUseCase

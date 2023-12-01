@@ -4,9 +4,9 @@ import android.content.Context
 import android.content.Intent
 import androidx.activity.viewModels
 import androidx.compose.runtime.Composable
-import com.adamsmolik.nba.core.base.arch.BaseActivity
 import com.adamsmolik.nba.core.base.navigation.ARG_INITIALIZER
 import com.adamsmolik.nba.core.base.navigation.Initializer
+import com.adamsmolik.nba.core.ui.arch.BaseActivity
 import com.adamsmolik.nba.team.ui.screen.detail.TeamDetailScreen
 import com.adamsmolik.nba.team.ui.screen.detail.TeamDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint

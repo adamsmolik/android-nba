@@ -1,7 +1,7 @@
 package com.adamsmolik.nba.player.ui.model
 
 import androidx.compose.runtime.Immutable
-import com.adamsmolik.nba.core.base.paging.PagingUiModel
+import com.adamsmolik.nba.core.ui.composable.paging.PagingUiModel
 import com.adamsmolik.nba.domain.player.model.PlayerModel
 
 @Immutable

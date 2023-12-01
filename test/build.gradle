@@ -4,7 +4,7 @@ android {
 }
 
 dependencies {
-    api project(':core:base')
+    api project(':core:ui')
 
     api testing_deps.junit
     api testing_deps.kotlinx_coroutines_test
