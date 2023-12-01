@@ -15,6 +15,7 @@ data class PlayerUiModel(
     val id: Int,
     val firstName: String,
     val lastName: String,
+    val avatar: String,
     val position: String?,
     val teamName: String,
 ) {
@@ -25,6 +26,7 @@ fun PlayerModel.toUiModel() = PlayerUiModel(
     id = id,
     firstName = firstName,
     lastName = lastName,
+    avatar = avatar,
     position = position,
     teamName = team.name,
 )

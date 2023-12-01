@@ -119,7 +119,9 @@ private fun Item(
                 horizontal = 16.dp,
             ),
     ) {
-        AvatarMedium()
+        AvatarMedium(
+            url = player.avatar,
+        )
 
         HorizontalSpacer(16.dp)
 

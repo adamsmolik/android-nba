@@ -21,6 +21,7 @@ fun PlayerDTO.toModel() = PlayerModel(
     id = id,
     firstName = firstName,
     lastName = lastName,
+    avatar = "https://picsum.photos/id/$id/200",
     position = position.ifEmpty { null },
     team = team.toModel(),
 )

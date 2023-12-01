@@ -97,7 +97,9 @@ private fun PlayerDetailContent(
                     vertical = 8.dp,
                 ),
         ) {
-            AvatarXXLarge()
+            AvatarXXLarge(
+                url = state.avatar,
+            )
 
             Column(
                 modifier = Modifier

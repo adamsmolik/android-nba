@@ -27,6 +27,7 @@ fun PlayerDetailDTO.toModel() = PlayerDetailModel(
     id = id,
     firstName = firstName,
     lastName = lastName,
+    avatar = "https://picsum.photos/id/$id/400",
     position = position.ifEmpty { null },
     heightFeet = heightFeet,
     heightInches = heightInches,
