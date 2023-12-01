@@ -9,7 +9,7 @@ import androidx.compose.ui.graphics.Color
 val Unspecified = Color.Unspecified
 val Transparent = Color(0x00000000)
 
-// val Black = Color(0xFF000000) TODO
+val Black = Color(0xFF000000)
 val White = Color(0xFFFFFFFF)
 
 // Grey
@@ -77,6 +77,27 @@ data class BrandColors(
 )
 
 internal val LightThemeColors = NBAColors(light = true)
+internal val DarkThemeColors = NBAColors(
+    surface = SurfaceColors(
+        primary = Grey7,
+        secondary = Black,
+        tertiary = Grey6,
+        inverse = Grey1,
+        inverseSecondary = Grey2,
+        disabled = Grey5,
+        primarySemiTransparent = Grey7.copy(alpha = 0.7f),
+        inverseSemiTransparent = Grey1.copy(alpha = 0.7f),
+    ),
+    onSurface = OnSurfaceColors(
+        primary = White,
+        secondary = Grey4,
+        tertiary = Grey3,
+        quaternary = Grey6,
+        inverse = Grey7,
+        disabled = Grey5,
+    ),
+    light = false,
+)
 
 internal fun NBAColors.toMaterialColors(): ColorScheme = ColorScheme(
     primary = brand.blue3,

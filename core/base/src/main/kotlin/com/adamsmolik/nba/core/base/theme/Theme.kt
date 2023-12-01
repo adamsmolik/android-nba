@@ -1,24 +1,37 @@
 package com.adamsmolik.nba.core.base.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.graphics.Color
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
 fun NBATheme(
-//    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = isSystemInDarkTheme(),
     typography: NBATypography = Typography,
     content: @Composable () -> Unit,
 ) {
-//    val colors = if (darkTheme) {
-//        DarkThemeColors
-//    } else {
-//        LightThemeColors
-//    }
+    val colors = remember(darkTheme) {
+        if (darkTheme) {
+            DarkThemeColors
+        } else {
+            LightThemeColors
+        }
+    }
 
-    val colors = LightThemeColors
+    val systemUiController = rememberSystemUiController()
+    LaunchedEffect(systemUiController, darkTheme) {
+        systemUiController.setSystemBarsColor(
+            color = Color.Transparent,
+            darkIcons = !darkTheme,
+        )
+    }
 
     MaterialTheme(
         colorScheme = colors.toMaterialColors(),
@@ -26,7 +39,7 @@ fun NBATheme(
     ) {
         CompositionLocalProvider(
             LocalColorScheme provides colors,
-            LocalRippleTheme provides DarkRippleTheme,
+            LocalRippleTheme provides BaseRippleTheme,
             LocalTypography provides typography,
         ) {
             content()

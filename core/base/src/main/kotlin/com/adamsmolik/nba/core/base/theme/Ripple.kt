@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 
 @Immutable
-object LightRippleTheme : RippleTheme {
+object InverseRippleTheme : RippleTheme {
     @Composable
     override fun defaultColor() = NBATheme.colors.surface.primary
 
@@ -15,7 +15,7 @@ object LightRippleTheme : RippleTheme {
 }
 
 @Immutable
-object DarkRippleTheme : RippleTheme {
+object BaseRippleTheme : RippleTheme {
     @Composable
     override fun defaultColor() = NBATheme.colors.surface.inverse
 

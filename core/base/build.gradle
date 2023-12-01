@@ -36,6 +36,9 @@ dependencies {
     api deps.androidx.compose.hilt_navigation
     api deps.androidx.compose.lifecycle_runtime
 
+    // Accompanist
+    api deps.accompanist.systemuicontroller
+
     // Coil
     api deps.coil.compose
 

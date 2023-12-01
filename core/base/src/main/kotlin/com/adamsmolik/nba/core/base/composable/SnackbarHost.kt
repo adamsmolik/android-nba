@@ -27,7 +27,7 @@ import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.adamsmolik.nba.core.base.arch.LocalActivity
-import com.adamsmolik.nba.core.base.theme.LightRippleTheme
+import com.adamsmolik.nba.core.base.theme.InverseRippleTheme
 import com.adamsmolik.nba.core.base.theme.NBATheme
 import com.adamsmolik.nba.core.base.util.TextRes
 import com.adamsmolik.nba.core.base.util.asString
@@ -118,7 +118,7 @@ fun SnackbarHost(
             val snackbarVisuals = snackbarData.visuals as CustomSnackbarVisuals
             val shape = RoundedCornerShape(8.dp)
 
-            CompositionLocalProvider(LocalRippleTheme provides LightRippleTheme) {
+            CompositionLocalProvider(LocalRippleTheme provides InverseRippleTheme) {
                 Snackbar(
                     content = {
                         SnackbarContent(
